@@ -57,10 +57,10 @@ Download program STEP langsung dari URL berikut:
 - Run Setup
 
 Menjalankan `setup.py` untuk memasang module yang dibutuhkan, antara lain:
-- [x] 1. Pip Install
-- [x] 2. Pyfiglet
-- [x] 3. Pandas
-- [x] 4. Numpy
+- [x] Pip Install
+- [x] Pyfiglet
+- [x] Pandas
+- [x] Numpy
 
 # Video Panduan #
 - Install Git Bash untuk Windows
