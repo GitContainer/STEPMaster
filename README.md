@@ -1,5 +1,5 @@
 # INDEX #
-[1. Judul Program](https://github.com/armyids/WSPMaster#step-(sediment-transport)
+[1. Judul Program](https://github.com/armyids/WSPMaster#step-(sediment-transport))
 
 [2. Fitur Program](https://github.com/armyids/WSPMaster#fitur)
 
@@ -25,7 +25,7 @@
 
 [13. Disclaimer](https://github.com/armyids/WSPMaster#disclaimer)
 
-# STEP (Sediment Transport & Erosion Prediction) #
+# STEP (Sediment Transport) #
 STEP merupakan auto bash / python shell script yang dibuat dengan tujuan untuk menghitung besarnya erosi akibat percikan air (interrill water splash erosion), erosi pada permukaan tanah (rill sheet erosion), laju pengendapan (deposition rate), serta transport sediment pada suatu area daerah aliran sungai (Watershed).
 
 # Fitur #
