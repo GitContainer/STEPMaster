@@ -9,7 +9,7 @@
 
 [5. Video Panduan](https://github.com/armyids/STEPMaster/blob/master/README.md#video-panduan)
 
-[6. Syarat Dan Ketentuan](https://github.com/armyids/STEPMaster/blob/master/README.md#video-panduan)
+[6. Syarat Dan Ketentuan](https://github.com/armyids/STEPMaster/blob/master/README.md#syarat-dan-ketentuan)
 
 [7. Contributor Script](https://github.com/armyids/STEPMaster/blob/master/README.md#contributors-script)
 
@@ -86,7 +86,6 @@ Menjalankan `setup.py` untuk memasang module yang dibutuhkan, antara lain:
 - [x] File antara soil.txt dan veg_param.txt harus mempunyai jumlah baris yang sama dan tidak diakhiri dengan new line (\n).
 - [x] Jika Anda adalah pengguna Windows, maka akan sangat wajar bila program meninggalkan registry extension file residual.
 - [x] Semua grid harus mempunyai jumlah data curah hujan dan overland flow yang sama.
-
 
 # Contributors Script #
 - Yanto, S.T., M.S.E., Ph.D
