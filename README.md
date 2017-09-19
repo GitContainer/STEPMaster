@@ -1,0 +1,2 @@
+# STEPMaster
+Sediment Transport &amp; Erosion Prediction (STEP) was initiated by Jenderal Soedirman University, a research university of technology located in Indonesia in 2017. STEP is an open-source project use for computing and predict the amount of sediment transport. This program has been tested and should work on almost all Python 3.6 compilers. Feel free to use the source code on your system.
