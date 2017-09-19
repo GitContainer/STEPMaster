@@ -26,7 +26,7 @@ STEP merupakan auto bash python shell script yang dibuat dengan tujuan untuk men
 - [x] Jika Anda adalah pengguna Windows, maka akan sangat wajar bila program meninggalkan registry extension file residual.
 - [x] Semua grid harus mempunyai jumlah data curah hujan dan overland flow yang sama.
 
-# Contributors Script #
+# Kontributor Script #
 - Yanto, S.T., M.S.E., Ph.D
 - Armia Faizal Sababa
 
