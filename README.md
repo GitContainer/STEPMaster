@@ -7,13 +7,13 @@
 
 [4. Instalasi Program](https://github.com/armyids/STEPMaster/blob/master/README.md#instalasi-program-step)
 
-[6. Video Panduan](https://github.com/armyids/STEPMaster/blob/master/README.md#video-panduan)
+[5. Video Panduan](https://github.com/armyids/STEPMaster/blob/master/README.md#video-panduan)
 
-[11. Contributor Script](https://github.com/armyids/STEPMaster/blob/master/README.md#contributors-script)
+[6. Contributor Script](https://github.com/armyids/STEPMaster/blob/master/README.md#contributors-script)
 
-[12. Kontak Dan Saran](https://github.com/armyids/STEPMaster/blob/master/README.md#kontak-dan-saran)
+[7. Kontak Dan Saran](https://github.com/armyids/STEPMaster/blob/master/README.md#kontak-dan-saran)
 
-[13. Disclaimer](https://github.com/armyids/STEPMaster/blob/master/README.md#disclaimer)
+[8. Disclaimer](https://github.com/armyids/STEPMaster/blob/master/README.md#disclaimer)
 
 # STEP (Sediment Transport & Erosion Prediction) #
 STEP merupakan auto bash python shell script yang dibuat dengan tujuan untuk menghitung besarnya erosi akibat percikan air (water splash erosion), erosi pada permukaan tanah (sheet erosion), laju pengendapan (deposition rate), serta transport sediment pada suatu area daerah aliran sungai (Watershed).
@@ -32,9 +32,7 @@ STEP merupakan auto bash python shell script yang dibuat dengan tujuan untuk men
 
 # Instalasi Program STEP #
 
-- Download Program STEP
-
-Untuk WINDOWS:
+- Untuk WINDOWS:
 
 Dengan cara klik kanan di folder yang diinginkan dan klik `Git Bash Here`, kemudian jalankan command berikut: 
 
@@ -44,13 +42,13 @@ Atau bisa juga langsung dapat download file zip :
 
 `https://github.com/armyids/STEPMaster.git`
 
-Untuk LINUX:
+- Untuk LINUX:
 
 Buka Terminal kemudian login sebagai user atau root, setelah itu masukkan command berikut untuk download program STEP:
 
 `wget -O https://github.com/armyids/STEPMaster.git`
 
-Untuk MacOS:
+- Untuk MacOS:
 
 Download program STEP langsung dari URL berikut:
 
@@ -59,10 +57,10 @@ Download program STEP langsung dari URL berikut:
 - Run Setup
 
 Menjalankan `setup.py` untuk memasang module yang dibutuhkan, antara lain:
-	1. Pip Install
-	2. Pyfiglet
-	3. Pandas
-	4. Numpy
+`1. Pip Install`
+`2. Pyfiglet`
+`3. Pandas`
+`4. Numpy`
 
 # Video Panduan #
 - Install Git Bash untuk Windows
@@ -82,11 +80,11 @@ Menjalankan `setup.py` untuk memasang module yang dibutuhkan, antara lain:
 [![Git Clone WPSMaster](LINK IMG)](LINK VID)
 
 # Contributors Script #
-Yanto, S.T., M.S.E., Ph.D
-Armia Faizal Sababa
+- Yanto, S.T., M.S.E., Ph.D
+- Armia Faizal Sababa
 
 # Kontak Dan Saran #
 Kontak, saran, pendapat dan lain-lain bisa menghubungi kami di http://sipil.ft.unsoed.ac.id/
  
 # Disclaimer #
-Saya selaku penanggungjawab script menyatakan 'Tidak ada backdoor, file, command, virus atau program jahat yang membahayakan di dalam script program STEP ini.
+Saya selaku penanggungjawab script menyatakan 'Tidak ada backdoor, file, command, virus atau program jahat yang membahayakan di dalam script program STEP ini.'
