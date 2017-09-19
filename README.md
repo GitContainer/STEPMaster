@@ -11,7 +11,7 @@
 
 [6. Syarat Dan Ketentuan](https://github.com/armyids/STEPMaster/blob/master/README.md#syarat-dan-ketentuan)
 
-[7. Contributor Script](https://github.com/armyids/STEPMaster/blob/master/README.md#contributors-script)
+[7. Kontributor Script](https://github.com/armyids/STEPMaster/blob/master/README.md#contributors-script)
 
 [8. Kontak Dan Saran](https://github.com/armyids/STEPMaster/blob/master/README.md#kontak-dan-saran)
 
