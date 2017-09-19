@@ -1,0 +1,3 @@
+gridlatlong	../input/gridlatlon/soil.txt (# Write your soil parameter folder path and also the file name)
+forcing	../input/forcing (# Write your forcing data folder location here)
+vegparam ../input/vegparam/veg_param.txt (# Write your vegetation parameter folder path and also the file name)
