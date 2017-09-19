@@ -3,19 +3,13 @@
 
 [2. Fitur Program](https://github.com/armyids/STEPMaster/blob/master/README.md#fitur)
 
-[3. Software Pendukung](https://github.com/armyids/STEPMaster/blob/master/README.md#software-pendukung-utama)
+[3. Syarat Dan Ketentuan](https://github.com/armyids/STEPMaster/blob/master/README.md#syarat-dan-ketentuan)
 
-[4. Instalasi Program](https://github.com/armyids/STEPMaster/blob/master/README.md#instalasi-program-step)
+[4. Kontributor Script](https://github.com/armyids/STEPMaster/blob/master/README.md#contributors-script)
 
-[5. Video Panduan](https://github.com/armyids/STEPMaster/blob/master/README.md#video-panduan)
+[5. Kontak Dan Saran](https://github.com/armyids/STEPMaster/blob/master/README.md#kontak-dan-saran)
 
-[6. Syarat Dan Ketentuan](https://github.com/armyids/STEPMaster/blob/master/README.md#syarat-dan-ketentuan)
-
-[7. Kontributor Script](https://github.com/armyids/STEPMaster/blob/master/README.md#contributors-script)
-
-[8. Kontak Dan Saran](https://github.com/armyids/STEPMaster/blob/master/README.md#kontak-dan-saran)
-
-[9. Disclaimer](https://github.com/armyids/STEPMaster/blob/master/README.md#disclaimer)
+[6. Disclaimer](https://github.com/armyids/STEPMaster/blob/master/README.md#disclaimer)
 
 # STEP (Sediment Transport & Erosion Prediction) #
 STEP merupakan auto bash python shell script yang dibuat dengan tujuan untuk menghitung besarnya erosi akibat percikan air (water splash erosion), erosi pada permukaan tanah (sheet erosion), laju pengendapan (deposition rate), serta transport sediment pada suatu area daerah aliran sungai (Watershed).
@@ -25,61 +19,6 @@ STEP merupakan auto bash python shell script yang dibuat dengan tujuan untuk men
 - [x] Menghitung Erosi Akibat Runoff Pada Permukaan Tanah (Sheet Erosion)
 - [x] Menghitung Laju Pengendapan (Deposition Rate) 
 - [x] Menghitung Transport Sediment
-
-# Software Pendukung Utama #
-- Python 3.6 or Later (For All Platform: Windows, Linux, & Mac)
-	https://www.python.org/downloads/windows/
-- Git (Terminal Khusus Windows)
-	https://git-for-windows.github.io/
-
-# Instalasi Program STEP #
-
-- Untuk WINDOWS:
-
-Dengan cara klik kanan di folder yang diinginkan dan klik `Git Bash Here`, kemudian jalankan command berikut: 
-
-`git clone -b master https://github.com/armyids/STEPMaster`
-
-Atau bisa juga langsung dapat download file zip : 
-
-`https://github.com/armyids/STEPMaster.git`
-
-- Untuk LINUX:
-
-Buka Terminal kemudian login sebagai user atau root, setelah itu masukkan command berikut untuk download program STEP:
-
-`wget -O https://github.com/armyids/STEPMaster.git`
-
-- Untuk MacOS:
-
-Download program STEP langsung dari URL berikut:
-
-`https://github.com/armyids/STEPMaster.git`
-
-- Run Setup
-
-Menjalankan `setup.py` untuk memasang module yang dibutuhkan, antara lain:
-- [x] Pip Install
-- [x] Pyfiglet
-- [x] Pandas
-- [x] Numpy
-
-# Video Panduan #
-- Install Git Bash untuk Windows
-
-[![Install Git Bash](LINK IMG)](LINK VID)
-
-- Install Python 3.6
-
-[![Install Python 3.6](LINK IMG)](LINK VID)
-
-- Install STEPMaster
-
-[![Git Clone WPSMaster](LINK IMG)](LINK VID)
-
-- Running STEPMaster
-
-[![Git Clone WPSMaster](LINK IMG)](LINK VID)
 
 # Syarat Dan Ketentuan #
 - [x] Program bisa dijalankan di folder manapun, namun tidak pada path atau lokasi folder yang terlalu panjang namanya dan mengandung karakter "(" , ")" didalamnya.
