@@ -9,11 +9,13 @@
 
 [5. Video Panduan](https://github.com/armyids/STEPMaster/blob/master/README.md#video-panduan)
 
-[6. Contributor Script](https://github.com/armyids/STEPMaster/blob/master/README.md#contributors-script)
+[6. Syarat Dan Ketentuan](https://github.com/armyids/STEPMaster/blob/master/README.md#video-panduan)
 
-[7. Kontak Dan Saran](https://github.com/armyids/STEPMaster/blob/master/README.md#kontak-dan-saran)
+[7. Contributor Script](https://github.com/armyids/STEPMaster/blob/master/README.md#contributors-script)
 
-[8. Disclaimer](https://github.com/armyids/STEPMaster/blob/master/README.md#disclaimer)
+[8. Kontak Dan Saran](https://github.com/armyids/STEPMaster/blob/master/README.md#kontak-dan-saran)
+
+[9. Disclaimer](https://github.com/armyids/STEPMaster/blob/master/README.md#disclaimer)
 
 # STEP (Sediment Transport & Erosion Prediction) #
 STEP merupakan auto bash python shell script yang dibuat dengan tujuan untuk menghitung besarnya erosi akibat percikan air (water splash erosion), erosi pada permukaan tanah (sheet erosion), laju pengendapan (deposition rate), serta transport sediment pada suatu area daerah aliran sungai (Watershed).
@@ -78,6 +80,13 @@ Menjalankan `setup.py` untuk memasang module yang dibutuhkan, antara lain:
 - Running STEPMaster
 
 [![Git Clone WPSMaster](LINK IMG)](LINK VID)
+
+# Syarat Dan Ketentuan #
+- [x] Program bisa dijalankan di folder manapun, namun tidak pada path atau lokasi folder yang terlalu panjang namanya dan mengandung karakter "(" , ")" didalamnya.
+- [x] File antara soil.txt dan veg_param.txt harus mempunyai jumlah baris yang sama dan tidak diakhiri dengan new line (\n).
+- [x] Jika Anda adalah pengguna Windows, maka akan sangat wajar bila program meninggalkan registry extension file residual.
+- [x] Semua grid harus mempunyai jumlah data curah hujan dan overland flow yang sama.
+
 
 # Contributors Script #
 - Yanto, S.T., M.S.E., Ph.D
