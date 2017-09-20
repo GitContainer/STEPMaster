@@ -160,7 +160,7 @@ with open("gll.txt","r") as axisordinat:
     first_y = float(str(shorted_y[0]))
     sec_y = float(str(shorted_y[1]))
     deg_grid_size = sec_y - first_y
-    km_grid_size = 1.0/deg_grid_size
+    km_grid_size = 111.12 * deg_grid_size # 111.12 is a convertion number from degree to kilometer
     grid_size = km_grid_size * 1000.0
 os.chdir(main_from_gll)
 ########## HERE IS THE LAST SECTION OF GRID SIZE CLASS ##########
