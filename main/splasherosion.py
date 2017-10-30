@@ -207,11 +207,23 @@ with open(stripped_gll_floc) as f:
   # Rename splasherosion_[number] to be se_[lat]_[lon]
 
 root_splasherosion = '../output/erosion/splasherosion'
+root_splasherosion_slush = '../output/erosion/splasherosion/'
+ordered_files_root_splasherosion = sorted(os.listdir(root_splasherosion), key=lambda x: (int(re.sub('\D','',x)),x))
 replace_by = 'se_{0}'
-for lsfn_gll in lfrn_gll[::-1]:
-    for item_splasherosion in os.listdir(root_splasherosion):
-        fullpath_splasherosion = os.path.join(root_splasherosion, item_splasherosion)
-    shutil.move(fullpath_splasherosion, fullpath_splasherosion.replace(item_splasherosion, replace_by.format(lsfn_gll)))
+
+path_splash_old = list()
+for item_splasherosion in ordered_files_root_splasherosion:
+    fullpath_splasherosion_old = os.path.join(root_splasherosion_slush, item_splasherosion)
+    path_splash_old.append(fullpath_splasherosion_old)
+
+path_splash_new = list()
+for lsfn_gll in lfrn_gll:
+    se = replace_by.format(lsfn_gll)
+    fullpath_splasherosion_new = os.path.join(root_splasherosion_slush, se)
+    path_splash_new.append(fullpath_splasherosion_new)
+
+for spath_old, spath_new in zip(path_splash_old, path_splash_new):
+    shutil.move(spath_old, spath_new)
 ########## HERE IS THE LAST SECTION OF GRID CELL CLASS ##########
 
 ########## HERE IS THE INITIAL SECTION OF RAINFALL INTENSITY CLASS ##########
