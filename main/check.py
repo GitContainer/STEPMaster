@@ -24,7 +24,7 @@ import pyfiglet
 
 pyfiglet.print_figlet("STEP",font="lean",justify="center")
 pyfiglet.print_figlet("Sediment Transport & Erosion Prediction",font="digital",justify="center")
-version = " Version 2.7.0 ";
+version = " Version 3.0.0 ";
 print("{1:^75}".format(" ",version))
 print(" ")
 

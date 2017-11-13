@@ -73,6 +73,64 @@ arr_global = df_global.values
 
 
 
+########## HERE IS THE INITIAL SECTION OF EROSION REPORT CLASS ##########
+# SPLASH AND SHEET EROSION RESULT
+
+  # Index folder path
+
+runoff_from_main = "../input/runoff/" 
+erosion_from_main = "../output/erosion/"
+splasherosion_from_main = "../output/erosion/splasherosion/"
+sheeterosion_from_main = "../output/erosion/sheeterosion/"
+
+  # Initial empty list for splash and sheet variable
+
+splash = list()
+sheet = list()
+
+  # Make list of file name inside of folder splash erosion and sheet erosion
+
+ordered_files_splasherosion_main = sorted(os.listdir(splasherosion_from_main), key=lambda x: (int(re.sub('\D','',x)),x))
+ordered_files_sheeterosion_main = sorted(os.listdir(sheeterosion_from_main), key=lambda x: (int(re.sub('\D','',x)),x))
+listdir_splash = ordered_files_splasherosion_main
+listdir_sheet = ordered_files_sheeterosion_main
+
+  # Make list of file name the erosion files 
+
+ordered_files_runoff_main = sorted(os.listdir(runoff_from_main), key=lambda x: (int(re.sub('\D','',x)),x))
+listdir_erosion = ordered_files_runoff_main
+
+  # Zip the list
+
+zip_splash_sheet = zip(listdir_splash, listdir_sheet)
+
+# Append every file's content into initial list of splash and sheet erosion
+
+for splash_f, sheet_f in zip_splash_sheet:
+    with open(splasherosion_from_main+splash_f) as var_splash:
+        v_splsh = str(var_splash.read())
+        l_splsh = v_splsh.split()
+        splash.append(l_splsh)
+    with open(sheeterosion_from_main+sheet_f) as var_sheet:
+        v_sheet = str(var_sheet.read())
+        l_sheet = v_sheet.split()
+        sheet.append(l_sheet)
+
+# Convert list into numpy array
+
+splash_array = np.array(splash)
+sheet_array = np.array(sheet)
+for erosion_f, single_splash, single_sheet in zip(listdir_erosion, splash_array, sheet_array):
+    if erosion_f.startswith("fluxes"):
+        rep_flux = erosion_f.replace("fluxes","erosion")
+        with open(erosion_from_main+rep_flux,"w") as erosion_result:
+            for sub_splash, sub_sheet in zip(single_splash, single_sheet):
+                float_splash_result = float(sub_splash)
+                float_sheet_result = float(sub_sheet)
+                result = float_splash_result + float_sheet_result
+                erosion_result.writelines("%.30f\n" %result)
+########## HERE IS THE LAST SECTION OF EROSION REPORT CLASS ##########
+
 ########## HERE IS THE INITIAL SECTION OF DEPOSITION CLASS ##########
 # DEPOSITION
 
@@ -93,7 +151,8 @@ os.chdir(runoff_from_main)
 
  # Remove header and copy the fluxes files into output folder
 
-for fn_fluxes in os.listdir("."):
+ordered_files_runoff_main_2 = sorted(os.listdir("."), key=lambda x: (int(re.sub('\D','',x)),x))
+for fn_fluxes in ordered_files_runoff_main_2:
     with open(fn_fluxes,"r") as f:
         lines_after_6 = f.readlines()[6:]
     with open(fluxes_from_runoff+fn_fluxes,"w") as writefluxes:
@@ -102,7 +161,8 @@ for fn_fluxes in os.listdir("."):
   # Select column no.6 as runoff or overflow 
 
 os.chdir(fluxes_from_runoff)
-for file_fluxes in os.listdir("."):
+ordered_files_fluxes_runoff = sorted(os.listdir("."), key=lambda x: (int(re.sub('\D','',x)),x))
+for file_fluxes in ordered_files_fluxes_runoff:
     with open(file_fluxes,"r") as content_fluxes:
         string_fluxes = str(content_fluxes.read().split())
         rplce_str1 = string_fluxes.replace("'","")
@@ -140,7 +200,8 @@ for file_fluxes in os.listdir("."):
   # Read the runoff data as a variable
 
 runoff = list()
-for file_fluxes in os.listdir("."):
+ordered_files_fluxes_runoff_2 = sorted(os.listdir("."), key=lambda x: (int(re.sub('\D','',x)),x))
+for file_fluxes in ordered_files_fluxes_runoff_2:
     with open(file_fluxes) as content_runoff:
         read_content_runoff = list((content_runoff.read()).split())
         scalar_array_runoff = np.array(0.0000000000000115740740740741, dtype = float)
@@ -225,7 +286,8 @@ for varlst_epsilon in os.listdir("."):
   # Save the value into a variable list 'value_epsilon'
 
 split_epsilon = ((str(epsilon)).split())
-if len(split_epsilon) == 2*(len([name for name in os.listdir(splasherosion_from_e) if os.path.isfile(os.path.join(splasherosion_from_e, name))])):
+ordered_files_splasherosion_e = sorted(os.listdir(splasherosion_from_e), key=lambda x: (int(re.sub('\D','',x)),x))
+if len(split_epsilon) == 2*(len([name for name in ordered_files_splasherosion_e if os.path.isfile(os.path.join(splasherosion_from_e, name))])):
     for e in epsilon:
         complist_epsilon = [e[x:x+2] for x in range(0, len(e), 2)]
         dict_epsilon = dict(complist_epsilon)
@@ -312,7 +374,8 @@ for varlst_gammas in os.listdir("."):
 
 gamma = 1000.0
 split_gammas = ((str(gammas)).split())
-if len(split_gammas) == 2*(len([name for name in os.listdir(splasherosion_from_e) if os.path.isfile(os.path.join(splasherosion_from_e, name))])):
+ordered_files_splasherosion_e = sorted(os.listdir(splasherosion_from_e), key=lambda x: (int(re.sub('\D','',x)),x))
+if len(split_gammas) == 2*(len([name for name in ordered_files_splasherosion_e if os.path.isfile(os.path.join(splasherosion_from_e, name))])):
     for gs in gammas:
         complist_gammas = [gs[x:x+2] for x in range(0, len(gs), 2)]
         dict_gammas = dict(complist_gammas)
@@ -404,7 +467,8 @@ for varlst_viscosity in os.listdir("."):
   # Save the value into a variable list 'value_viscosity'
 
 split_viscosity = ((str(viscosity)).split())
-if len(split_viscosity) == 2*(len([name for name in os.listdir(splasherosion_from_e) if os.path.isfile(os.path.join(splasherosion_from_e, name))])):
+ordered_files_splasherosion_e = sorted(os.listdir(splasherosion_from_e), key=lambda x: (int(re.sub('\D','',x)),x))
+if len(split_viscosity) == 2*(len([name for name in ordered_files_splasherosion_e if os.path.isfile(os.path.join(splasherosion_from_e, name))])):
     for v in viscosity:
         complist_viscosity = [v[x:x+2] for x in range(0, len(v), 2)]
         dict_viscosity = dict(complist_viscosity)
@@ -490,7 +554,8 @@ for varlst_diameter in os.listdir("."):
   # Save the value into a variable list 'value_diameter'
 
 split_diameter = ((str(diameter)).split())
-if len(split_diameter) == 2*(len([name for name in os.listdir(splasherosion_from_e) if os.path.isfile(os.path.join(splasherosion_from_e, name))])):
+ordered_files_splasherosion_e = sorted(os.listdir(splasherosion_from_e), key=lambda x: (int(re.sub('\D','',x)),x))
+if len(split_diameter) == 2*(len([name for name in ordered_files_splasherosion_e if os.path.isfile(os.path.join(splasherosion_from_e, name))])):
     for ds in diameter:
         complist_diameter = [ds[x:x+2] for x in range(0, len(ds), 2)]
         dict_diameter = dict(complist_diameter)
@@ -576,7 +641,8 @@ for varlst_omega in os.listdir("."):
   # Save the value into a variable list 'value_omega'
 
 split_omega = ((str(omega)).split())
-if len(split_omega) == 2*(len([name for name in os.listdir(splasherosion_from_e) if os.path.isfile(os.path.join(splasherosion_from_e, name))])):
+ordered_files_splasherosion_e = sorted(os.listdir(splasherosion_from_e), key=lambda x: (int(re.sub('\D','',x)),x))
+if len(split_omega) == 2*(len([name for name in ordered_files_splasherosion_e if os.path.isfile(os.path.join(splasherosion_from_e, name))])):
     for w in omega:
         complist_omega = [w[x:x+2] for x in range(0, len(w), 2)]
         dict_omega = dict(complist_omega)
@@ -660,7 +726,8 @@ for q, single_omega in zip_sediment_concentration:
         c.append(single_c)
 flux_dur = list()
 q_from_main = "../output/erosion/tempfiles/q/"
-for day_dur in os.listdir(q_from_main):
+ordered_files_q_main = sorted(os.listdir(q_from_main), key=lambda x: (int(re.sub('\D','',x)),x))
+for day_dur in ordered_files_q_main:
     flux_dur.append(day_dur)
 sample_flux = str(flux_dur[0])
 with open(q_from_main+sample_flux) as smpl_dur:
@@ -670,7 +737,8 @@ q_c = [c[i:i+(dlen_dur)] for i in range(0,len(c),(dlen_dur))]
 # DEPOSITION
 
 dep_nf = list()
-for dep_namefiles in os.listdir(q_from_main):
+ordered_files_q_main_2 = sorted(os.listdir(q_from_main), key=lambda x: (int(re.sub('\D','',x)),x))
+for dep_namefiles in ordered_files_q_main_2:
     if dep_namefiles.startswith("fluxes"):
         dep_namefile = dep_namefiles.replace("fluxes","deposition")
         dep_nf.append(dep_namefile)
@@ -705,12 +773,25 @@ deposition_var = list()
 
   # Make list of file name inside of folder erosion and deposition
 
-listdir_erosion = os.listdir(erosion_from_main)
-listdir_deposition = os.listdir(deposition_from_main)
+fl_erosion = list()
+for file_list_erosion in os.listdir(erosion_from_main):
+    if file_list_erosion.startswith("erosion_"):
+        fl_erosion.append(file_list_erosion)
+fl_deposition = list()
+for file_list_deposition in os.listdir(deposition_from_main):
+    if file_list_deposition.startswith("deposition_"):
+        fl_deposition.append(file_list_deposition)
+ordered_files_erosion_main = sorted(fl_erosion, key=lambda x: (int(re.sub('\D','',x)),x))
+ordered_files_deposition_main = sorted(fl_deposition, key=lambda x: (int(re.sub('\D','',x)),x))
+listdir_erosion = ordered_files_erosion_main
+listdir_deposition = ordered_files_deposition_main
+print(ordered_files_erosion_main)
+print(ordered_files_deposition_main)
 
   # Make list of file name the transport sediment files 
 
-listdir_transport = os.listdir(runoff_from_main)
+ordered_files_runoff_main = sorted(os.listdir(runoff_from_main), key=lambda x: (int(re.sub('\D','',x)),x))
+listdir_transport = ordered_files_runoff_main
 
   # Zip the list
 

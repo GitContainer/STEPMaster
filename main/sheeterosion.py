@@ -94,7 +94,8 @@ os.chdir(runoff_from_main)
 
  # Remove header and copy the fluxes files into output folder
 
-for fn_fluxes in os.listdir("."):
+ordered_files_runoff_main = sorted(os.listdir("."), key=lambda x: (int(re.sub('\D','',x)),x))
+for fn_fluxes in ordered_files_runoff_main:
     with open(fn_fluxes,"r") as f:
         lines_after_6 = f.readlines()[6:]
     with open(fluxes_from_runoff+fn_fluxes,"w") as writefluxes:
@@ -103,7 +104,8 @@ for fn_fluxes in os.listdir("."):
   # Select column no.6 as runoff or overflow 
 
 os.chdir(fluxes_from_runoff)
-for file_fluxes in os.listdir("."):
+ordered_files_fluxes_runoff = sorted(os.listdir("."), key=lambda x: (int(re.sub('\D','',x)),x))
+for file_fluxes in ordered_files_fluxes_runoff:
     with open(file_fluxes,"r") as content_fluxes:
         string_fluxes = str(content_fluxes.read().split())
         rplce_str1 = string_fluxes.replace("'","")
@@ -120,7 +122,7 @@ for file_fluxes in os.listdir("."):
   # Get day duration
   
 flux_dur = list()
-for day_dur in os.listdir("."):
+for day_dur in ordered_files_fluxes_runoff:
     flux_dur.append(day_dur)
 sample_flux = str(flux_dur[0])
 with open(sample_flux) as smpl_dur:
@@ -129,7 +131,7 @@ with open(sample_flux) as smpl_dur:
   # Read the runoff data as a variable
 
 runoff = list()
-for file_fluxes in os.listdir("."):
+for file_fluxes in ordered_files_fluxes_runoff:
     with open(file_fluxes) as content_runoff:
         read_content_runoff = list((content_runoff.read()).split())
         scalar_array_runoff = np.array(0.0000000000000115740740740741, dtype = float)
@@ -239,7 +241,8 @@ for varlst_slope in os.listdir("."):
   # Save the value into a variable list 'value_slope'
 
 split_slope = ((str(slope)).split())
-if len(split_slope) == 2*(len([name for name in os.listdir(splasherosion_from_stemp) if os.path.isfile(os.path.join(splasherosion_from_stemp, name))])):
+ordered_files_splasherosion_stemp = sorted(os.listdir(splasherosion_from_stemp), key=lambda x: (int(re.sub('\D','',x)),x))
+if len(split_slope) == 2*(len([name for name in ordered_files_splasherosion_stemp if os.path.isfile(os.path.join(splasherosion_from_stemp, name))])):
     for s in slope:
         complist_slope = [s[x:x+2] for x in range(0, len(s), 2)]
         dict_slope = dict(complist_slope)
@@ -325,7 +328,8 @@ for varlst_manning in os.listdir("."):
   # Save the value into a variable list 'value_manning'
 
 split_manning = ((str(manning)).split())
-if len(split_manning) == 2*(len([name for name in os.listdir(splasherosion_from_stemp) if os.path.isfile(os.path.join(splasherosion_from_stemp, name))])):
+ordered_files_splasherosion_temp = sorted(os.listdir(splasherosion_from_stemp), key=lambda x: (int(re.sub('\D','',x)),x))
+if len(split_manning) == 2*(len([name for name in ordered_files_splasherosion_temp if os.path.isfile(os.path.join(splasherosion_from_stemp, name))])):
     for n in manning:
         complist_manning = [n[x:x+2] for x in range(0, len(n), 2)]
         dict_manning = dict(complist_manning)
@@ -387,13 +391,14 @@ x0_per_grid = [x0_init[i:i+(dlen_dur)] for i in range(0,len(x0_init),(dlen_dur))
   # Extract x2_init and x0_init into files
   
 x2_from_main = "../output/erosion/tempfiles/p/x2/"
-for x2_namefiles, x2s in zip(os.listdir(fluxes_from_main), x2_per_grid):
+ordered_files_fluxes_main = sorted(os.listdir(fluxes_from_main), key=lambda x: (int(re.sub('\D','',x)),x))
+for x2_namefiles, x2s in zip(ordered_files_fluxes_main, x2_per_grid):
     with open(x2_from_main+x2_namefiles,"w") as x2_output:
         for x2sp in x2s:
             str_x2sp = str(x2sp)
             x2_output.writelines("%s\n" %str_x2sp)
 x0_from_main = "../output/erosion/tempfiles/p/x0/"
-for x0_namefiles, x0s in zip(os.listdir(fluxes_from_main), x0_per_grid):
+for x0_namefiles, x0s in zip(ordered_files_fluxes_main, x0_per_grid):
     with open(x0_from_main+x0_namefiles,"w") as x0_output:
         for x0sp in x0s:
             str_x0sp = str(x0sp)
@@ -403,7 +408,9 @@ for x0_namefiles, x0s in zip(os.listdir(fluxes_from_main), x0_per_grid):
 
 x2ss = list()
 x0ss = list()
-for listfile_x2s, listfile_x0s in zip(os.listdir(x2_from_main), os.listdir(x0_from_main)):
+ordered_files_x2_main = sorted(os.listdir(x2_from_main), key=lambda x: (int(re.sub('\D','',x)),x))
+ordered_files_x0_main = sorted(os.listdir(x0_from_main), key=lambda x: (int(re.sub('\D','',x)),x))
+for listfile_x2s, listfile_x0s in zip(ordered_files_x2_main, ordered_files_x0_main):
     with open(x2_from_main+listfile_x2s) as var_x2s:
         v_x2s = str(var_x2s.read().split())
         r_x2s = v_x2s.replace("[","")
@@ -479,7 +486,8 @@ RH_per_grid = [RH[i:i+(dlen_dur)] for i in range(0,len(RH),(dlen_dur))]
   # Write files for hydraulic radius
 
 hydroradius_from_main = "../output/erosion/tempfiles/r/"
-fnlist_RH = os.listdir(fluxes_from_main)
+ordered_files_fluxes_main = sorted(os.listdir(fluxes_from_main), key=lambda x: (int(re.sub('\D','',x)),x))
+fnlist_RH = ordered_files_fluxes_main
 for out_RH, sRH in zip(fnlist_RH, RH_per_grid):
     with open(hydroradius_from_main+out_RH,"w") as wo_RH:
         for ssRH in sRH:
@@ -583,7 +591,8 @@ for varlst_erodibility in os.listdir("."):
   # Save the value into a variable list 'value_erodibility'
 
 split_erodibility = ((str(erodibility)).split())
-if len(split_erodibility) == 2*(len([name for name in os.listdir(splasherosion_from_stemp) if os.path.isfile(os.path.join(splasherosion_from_stemp, name))])):
+ordered_files_splasherosion_temp = sorted(os.listdir(splasherosion_from_stemp), key=lambda x: (int(re.sub('\D','',x)),x))
+if len(split_erodibility) == 2*(len([name for name in ordered_files_splasherosion_temp if os.path.isfile(os.path.join(splasherosion_from_stemp, name))])):
     for k in erodibility:
         complist_erodibility = [k[x:x+2] for x in range(0, len(k), 2)]
         dict_erodibility = dict(complist_erodibility)
@@ -639,8 +648,13 @@ mm2_from_main = "../output/erosion/sheeterosion/"
 
   # Write the results into files
 
+report_sheeterosion = list()
+for lst_files in os.listdir(mm_from_main):
+    if lst_files.startswith("data_"):
+        report_sheeterosion.append(lst_files)
+ordered_files_mm_main = sorted(report_sheeterosion, key=lambda x: (int(re.sub('\D','',x)),x))
 she_nf = list()
-for she_namefiles in os.listdir(mm_from_main):
+for she_namefiles in ordered_files_mm_main:
     if she_namefiles.startswith("data_"):
         she_namefile = she_namefiles.replace("data","she")
         she_nf.append(she_namefile)
@@ -650,57 +664,3 @@ for nf_she, she in zip(she_nf,she_per_grid):
             float_sh = float(sh)
             create_she.writelines("%.30f\n"%float_sh)
 ########## HERE IS THE LAST SECTION OF SHEET EROSION REPORT CLASS ##########
-
-########## HERE IS THE INITIAL SECTION OF EROSION REPORT CLASS ##########
-# SPLASH AND SHEET EROSION RESULT
-
-  # Index folder path
- 
-erosion_from_main = "../output/erosion/"
-splasherosion_from_main = "../output/erosion/splasherosion/"
-sheeterosion_from_main = "../output/erosion/sheeterosion/"
-
-  # Initial empty list for splash and sheet variable
-
-splash = list()
-sheet = list()
-
-  # Make list of file name inside of folder splash erosion and sheet erosion
-
-listdir_splash = os.listdir(splasherosion_from_main)
-listdir_sheet = os.listdir(sheeterosion_from_main)
-
-  # Make list of file name the erosion files 
-
-listdir_erosion = os.listdir(runoff_from_main)
-
-  # Zip the list
-
-zip_splash_sheet = zip(listdir_splash, listdir_sheet)
-
-# Append every file's content into initial list of splash and sheet erosion
-
-for splash_f, sheet_f in zip_splash_sheet:
-    with open(splasherosion_from_main+splash_f) as var_splash:
-        v_splsh = str(var_splash.read())
-        l_splsh = v_splsh.split()
-        splash.append(l_splsh)
-    with open(sheeterosion_from_main+sheet_f) as var_sheet:
-        v_sheet = str(var_sheet.read())
-        l_sheet = v_sheet.split()
-        sheet.append(l_sheet)
-
-# Convert list into numpy array
-
-splash_array = np.array(splash)
-sheet_array = np.array(sheet)
-for erosion_f, single_splash, single_sheet in zip(listdir_erosion, splash_array, sheet_array):
-    if erosion_f.startswith("fluxes"):
-        rep_flux = erosion_f.replace("fluxes","erosion")
-        with open(erosion_from_main+rep_flux,"w") as erosion_result:
-            for sub_splash, sub_sheet in zip(single_splash, single_sheet):
-                float_splash_result = float(sub_splash)
-                float_sheet_result = float(sub_sheet)
-                result = float_splash_result + float_sheet_result
-                erosion_result.writelines("%.30f\n" %result)
-########## HERE IS THE LAST SECTION OF EROSION REPORT CLASS ##########

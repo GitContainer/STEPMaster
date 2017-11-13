@@ -174,7 +174,7 @@ for line_gll in fl_fngll:
     # Write the list into a file
     fn_gll.write("%s\n" %filename_splasherosion)
 fn_gll.close()
-    
+  
   ### GLL WRITE INTO MULTIPLE FILES & NAME IT BASED ON FL_FNGLL.TXT ###
                
   # Definition function for grouping
@@ -532,10 +532,12 @@ done = True
   ### REPORT THE CALCULATION ###
 
   # Print path of splash erosion filename list into a file named content_se.txt
-  
+
+report_ordered_files_root_splasherosion = sorted(os.listdir(root_splasherosion), key=lambda x: (int(re.sub('\D','',x)),x))  
+
 floc_content_se = "../output/erosion/tempfiles/ri/content_se.txt" # Save file path into a variable
 each_content_se = open(floc_content_se, "w") # Open write mode with metode below:
-for item_se in os.listdir(root_splasherosion): # Make a list of splash erosion filename
+for item_se in report_ordered_files_root_splasherosion: # Make a list of splash erosion filename
     content_se = root_splasherosion+"/"+str(item_se) # Save full path of splash erosion files into a variable called content_se
     s_content_se = str(content_se) # Convert into string class
     each_content_se.write("%s\n" %s_content_se) # Write the list into content_se.txt
@@ -548,10 +550,12 @@ data_content_se = loc_content_se.read().splitlines() # Read per line and save it
 
   # Print path of splash erosion filename list into a file named content_splsherosion.txt
   
+report_ordered_files_root_splsherosion = sorted(os.listdir(mm_from_main), key=lambda x: (int(re.sub('\D','',x)),x))  
+
 root_splsherosion = mm_from_main # Root for splas herosion data file
 floc_content_splsherosion = "../output/erosion/tempfiles/mm/content_splsherosion.txt"  # Save file path into a variable
 each_content_splsherosion = open(floc_content_splsherosion, "w") # Open write mode with metode below:
-for item_splsherosion in os.listdir(root_splsherosion): # Make a list of splash erosion filename
+for item_splsherosion in report_ordered_files_root_splsherosion: # Make a list of splash erosion filename
     if re.match("data_",item_splsherosion): # If the content of folder mm has initial name "data_" so they would be printed and save them into a variable
         content_splsherosion = root_splsherosion+"/"+str(item_splsherosion) # Save full path of splash erosion files into a variable called content_splsherosion.txt
         s_content_splsherosion = str(content_splsherosion) # Convert into string class
@@ -631,19 +635,23 @@ with open(locse_report) as f: # Write lists of filename into file
 
   # Rename splasherosion_[number] to be se_[lat]_[lon]
 
-path_splsherosion = []
-for item_splasherosion in os.listdir(root_splasherosion):
-    if item_splasherosion.startswith("splsherosion"):
-        fullpath_splasherosion1 = os.path.join(root_splasherosion, item_splasherosion)
+new_ordered_files_root_splasherosion = sorted(os.listdir(root_splasherosion), key=lambda x: (int(re.sub('\D','',x)),x))
+
+path_splsherosion = list()
+for item_splasherosion in new_ordered_files_root_splasherosion:
+    if item_splasherosion.startswith("splsherosion_"):
+        fullpath_splasherosion1 = os.path.join(root_splasherosion_slush, item_splasherosion)
         path_splsherosion.append("%s" %fullpath_splasherosion1)
-path_se = []
-for item_splasherosion in os.listdir(root_splasherosion):
-    if item_splasherosion.startswith("se_"):
-        fullpath_splasherosion2 = os.path.join(root_splasherosion, item_splasherosion)
-        path_se.append("%s" %fullpath_splasherosion2)
-t = len(path_se)
-for i in range(0,t):
-    shutil.move(path_splsherosion[i], path_se[i])
+
+path_se = list()
+for lsfn_gll in lfrn_gll:
+    se = replace_by.format(lsfn_gll)
+    fullpath_splasherosion2 = os.path.join(root_splasherosion_slush, se)
+    path_se.append(fullpath_splasherosion2)
+
+for splashpath_old, splashpath_new in zip(path_splsherosion, path_se):
+    shutil.move(splashpath_old, splashpath_new)
+
 ########## HERE IS THE LAST SECTION OF SPLASH EROSION REPORT CLASS ##########        
 ########## HERE IS THE LAST SECTION OF SPLASH EROSION CLASS ##########
 
