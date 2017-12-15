@@ -32,6 +32,8 @@ STEP merupakan auto bash python shell script yang dibuat dengan tujuan untuk men
 - Untuk mengetahui bagaimana program STEP melakukan perhitungan sediment transport, Anda dapat melihatnya pada flowchart berikut https://goo.gl/azboLw
 - Untuk mengetahui cara menjalankan program STEP, Anda dapat mendownloadnya pada tautan berikut https://goo.gl/Hg2hCq
 - Untuk mengetahui bias error perhitungan dengan membandingkan hasil perhitungan program STEP dan perhitungan manual dengan Microsoft Excel, Anda dapat mendownloadnya pada tautan berikut https://goo.gl/KMqFm2
+- Untuk melihat bagaiman program dapat dijalankan khususnya pada sistem operasi Windows, Anda dapat melihatnya melalui video berikut ini:
+[![How to Run STEP (Sediment Transport & Erosion Prediction) on Windows](http://img.youtube.com/vi/FlF77Yqeml4/maxresdefault.jpg)](https://www.youtube.com/watch?v=FlF77Yqeml4)
 
 # Kontributor Script #
 - Yanto, S.T., M.S.E., Ph.D
